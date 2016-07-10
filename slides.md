@@ -14,6 +14,10 @@ class: center, middle, inverse
 
 # Django REST Framework Crash Course
 
+.footnote[
+Follow along at https://git.io/drfcc
+]
+
 ---
 
 layout: false
