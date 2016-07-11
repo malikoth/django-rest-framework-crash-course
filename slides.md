@@ -22,14 +22,19 @@ Follow along at https://git.io/drfcc
 
 layout: false
 
-.right-column[
-# Overview
+.left-column[
+## Overview
+
+]
+.right-column.large[
 * Django
 * REST and RESTful web APIs
+
+
 * Serializing / deserializing data
 * Representing data relationships
 * Grouping functionality in viewsets
-* Automatically creating endpoints with routers
+* Automatic endpoints with routers
 ]
 
 ---
@@ -43,15 +48,11 @@ template: inverse
 ## Django
 ### - Overview
 ]
-.right-column[
+.right-column.large[
 > "The web framework for perfectionists with deadlines."
 
 > "Django was invented to meet fast-moving newsroom deadlines, while satisfying the tough requirements of experienced
 Web developers."
-
-> "With Django, you can take Web applications from concept to launch in a matter of hours. Django takes care of much of
-the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and
-open source."
 ]
 
 ---
@@ -61,7 +62,9 @@ open source."
 ### - Overview
 ### - Common Tools
 ]
-.right-column[
+.right-column.large[
+
+.pull-left[
 * Authentication
 * Caching
 * Logging
@@ -69,14 +72,17 @@ open source."
 * Syndication feeds (RSS / Atom)
 * Pagination
 * Messages framework
+]
+.pull-right[
 * Serialization
 * Sessions
 * Sitemaps
-* Statis files management
+* Static  files management
 * Data validation
 * Templating (DTL, Jinja2, etc.)
 * Flatpages
 * Redirects
+]
 ]
 
 ---
@@ -90,11 +96,10 @@ template: inverse
 ## REST
 ### - What is REST?
 ]
-.right-column[
-> "The REST architectural style describes six constraints. These constraints, applied to the architecture, were
-originally communicated by Roy Fielding in his
-[doctoral dissertation](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) and defines the basis of
-RESTful-style."
+.right-column.large[
+REpresentational State Transfer (REST) is an architectural style that describes six constraints.
+
+To the extent that systems conform to the constraints of REST they can be called RESTful.
 ]
 
 ---
@@ -104,7 +109,7 @@ RESTful-style."
 ### - What is REST?
 ### - Constraints
 ]
-.right-column[
+.right-column.large[
 * Uniform Interface
 * Stateless
 * Cacheable
@@ -121,7 +126,7 @@ RESTful-style."
 ### - Constraints
 ### - What it buys us
 ]
-.right-column[
+.right-column.large[
 * Performance
 * Scalability
 * Simplicity
@@ -140,7 +145,7 @@ RESTful-style."
 ### - What it buys us
 ### - Web APIs
 ]
-.right-column[
+.right-column.large[
 * Resource (noun) based
 * Use standard HTTP verbs to specify actions
 * Use HTTP response codes to indicate status
@@ -154,8 +159,10 @@ template: inverse
 
 ---
 
-.right-column[
-# Case Study: BetterReads
+.left-column[
+## Case Study: BetterReads
+]
+.right-column.large[
 * Relationships
 * Model definitions
 * What it looks like
@@ -164,7 +171,18 @@ template: inverse
 
 ---
 
-.right-column[
-# Resources
+.left-column[
+## Resources
+]
+.right-column.large[
 * [REST API Tutorial](http://www.restapitutorial.com/)
+]
+
+---
+
+.left-column[
+## Sources
+]
+.right-column.large[
+* [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 ]
