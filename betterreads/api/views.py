@@ -12,3 +12,13 @@ class BookViewSet(viewsets.ModelViewSet):
 class TagViewSet(viewsets.ModelViewSet):
     queryset = models.Tag.objects.all()
     serializer_class = serializers.TagSerializer
+
+
+class PublisherViewSet(viewsets.ModelViewSet):
+    queryset = models.Publisher.objects.all()
+    serializer_class = serializers.PublisherSerializer
+
+
+class PersonViewSet(viewsets.ModelViewSet):
+    queryset = models.Person.objects.all()
+    serializer_class = serializers.PersonSerializer

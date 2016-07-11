@@ -4,12 +4,8 @@ from api import models
 
 
 class BookSerializer(serializers.HyperlinkedModelSerializer):
-    tags = serializers.SlugRelatedField(
-        slug_field='name',
-        allow_null=True,
-        required=False,
-        queryset=models.Tag.objects.all(),
-        many=True)
+    tags = serializers.SlugRelatedField(slug_field='name', queryset=models.Tag.objects.all(), many=True)
+    publisher = serializers.SlugRelatedField(slug_field='name', queryset=models.Publisher.objects.all())
 
     class Meta:
         model = models.Book
@@ -18,3 +14,13 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Tag
+
+
+class PublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Publisher
+
+
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Person
