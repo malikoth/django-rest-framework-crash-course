@@ -12,6 +12,8 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TagSerializer(serializers.ModelSerializer):
+    books = serializers.SlugRelatedField(slug_field='name', queryset=models.Book.objects.all(), many=True)
+
     class Meta:
         model = models.Tag
 
