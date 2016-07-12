@@ -1,21 +1,18 @@
 from rest_framework import serializers
 
-from api import models, fields
+from api import models
 
 
-class BookSerializer(serializers.HyperlinkedModelSerializer):
+class BookSerializer(serializers.ModelSerializer):
     tags = serializers.SlugRelatedField(
         slug_field='name',
         queryset=models.Tag.objects.all(),
         many=True)
     publisher = serializers.SlugRelatedField(
         slug_field='name',
-        queryset=models.Publisher.objects.all())
-    authors = fields.DelimitedStringRelatedField(
-        delimiter=' ',
-        attribute_names=('first_name', 'last_name'),
-        queryset=models.Person.objects.all(),
-        many=True)
+        queryset=models.Publisher.objects.all(),
+        allow_null=True)
+    url = serializers.HyperlinkedIdentityField(view_name='book-detail')
 
     class Meta:
         model = models.Book
@@ -37,11 +34,5 @@ class PublisherSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
-    name = fields.DelimitedStringRelatedField(
-        delimiter=' ',
-        attribute_names=('first_name', 'last_name'),
-        queryset=models.Person.objects.all())
-
     class Meta:
         model = models.Person
-        fields = ('id', 'name')
