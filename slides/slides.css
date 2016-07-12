@@ -36,10 +36,14 @@ a, a > code {
 }
 code {
     background: #e7e8e2;
-    border-radius: 5px;
+    border-radius: 5px
+}
+.no-curves code {
+    border-radius: 0;
 }
 .remark-code, .remark-inline-code {
     font-family: 'Ubuntu Mono';
+    font-size: 21px !important;
 }
 .remark-code-line-highlighted {
     background-color: #333;
@@ -54,13 +58,6 @@ code {
 }
 .pull-right ~ p {
     clear: both;
-}
-#slideshow .slide .content code {
-    font-size: 0.8em;
-}
-#slideshow .slide .content pre code {
-    font-size: 0.9em;
-    padding: 15px;
 }
 .title {
     text-shadow: 0 0 20px #555;
@@ -83,11 +80,23 @@ code {
 .right-column {
     width: 75%;
     float: right;
-    padding-top: 1em;
     font-size: 1.6em;
 }
-.right-column h1, .right-column h2, .right-column h3 {
-    margin-top: 0;
+.right-column > * {
+    padding-top: 1em;
+    margin: 0;
+}
+.no-padding > * {
+    padding-top: 0;
+}
+.huge h1 {
+    font-size: 6em;
+}
+.huge h2 {
+    font-size: 4em;
+}
+.huge h3 {
+    font-size: 2em;
 }
 
 /* Slide-specific styling */
