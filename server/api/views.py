@@ -1,13 +1,13 @@
 from rest_framework import viewsets
 
-import api.viewsets
 from api import models
 from api import serializers
 
 
-class BookViewSet(api.viewsets.SelfDescribingModelViewSet):
+class BookViewSet(viewsets.ModelViewSet):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
+    filter_fields = ('year', 'in_print', 'authors', 'name', 'tags', 'publisher')
 
 
 class TagViewSet(viewsets.ModelViewSet):
