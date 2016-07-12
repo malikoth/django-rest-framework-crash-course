@@ -34,5 +34,7 @@ class PublisherSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField()
+
     class Meta:
         model = models.Person
