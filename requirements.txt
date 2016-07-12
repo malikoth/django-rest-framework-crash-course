@@ -1,0 +1,2 @@
+-r client/requirements.txt
+-r server/requirements.txt

@@ -1,10 +1,11 @@
 from rest_framework import viewsets
 
+import api.viewsets
 from api import models
 from api import serializers
 
 
-class BookViewSet(viewsets.ModelViewSet):
+class BookViewSet(api.viewsets.SelfDescribingModelViewSet):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
 
