@@ -1,6 +1,7 @@
-name: inverse
+name: title
 layout: true
-class: center, middle, inverse
+class: center, middle, huge
+background-image: url('http://wallpaperlayer.com/img/2015/7/cool-blue-textured-backgrounds-6923-7203-hd-wallpapers.jpg')
 
 .left-column[
 
@@ -9,9 +10,15 @@ class: center, middle, inverse
 
 ]
 
+---
+
+name: background
+layout: true
+background-image: url('http://wallpaperlayer.com/img/2015/7/cool-blue-textured-backgrounds-6923-7203-hd-wallpapers.jpg')
 
 ---
 
+template: title
 # Django REST Framework Crash Course
 
 .footnote[
@@ -20,17 +27,17 @@ Follow along at https://git.io/drfcc
 
 ---
 
-layout: false
-
 .left-column[
 ## Overview
 
 ]
-.right-column.large[
+.right-column[
+## Quick introductions
 * Django
 * REST and RESTful web APIs
+* Example project
 
-
+## Django REST Framework
 * Serializing / deserializing data
 * Representing data relationships
 * Grouping functionality in viewsets
@@ -39,7 +46,7 @@ layout: false
 
 ---
 
-template: inverse
+template: title
 # Django
 
 ---
@@ -48,7 +55,7 @@ template: inverse
 ## Django
 ### - Overview
 ]
-.right-column.large[
+.right-column[
 > "The web framework for perfectionists with deadlines."
 
 > "Django was invented to meet fast-moving newsroom deadlines, while satisfying the tough requirements of experienced
@@ -62,8 +69,7 @@ Web developers."
 ### - Overview
 ### - Common Tools
 ]
-.right-column.large[
-
+.right-column[
 .pull-left[
 * Authentication
 * Caching
@@ -72,9 +78,9 @@ Web developers."
 * Syndication feeds (RSS / Atom)
 * Pagination
 * Messages framework
+* Serialization
 ]
 .pull-right[
-* Serialization
 * Sessions
 * Sitemaps
 * Static  files management
@@ -87,7 +93,7 @@ Web developers."
 
 ---
 
-template: inverse
+template: title
 # REST and RESTful web APIs
 
 ---
@@ -96,7 +102,7 @@ template: inverse
 ## REST
 ### - What is REST?
 ]
-.right-column.large[
+.right-column[
 REpresentational State Transfer (REST) is an architectural style that describes six constraints.
 
 To the extent that systems conform to the constraints of REST they can be called RESTful.
@@ -109,9 +115,9 @@ To the extent that systems conform to the constraints of REST they can be called
 ### - What is REST?
 ### - Constraints
 ]
-.right-column.large[
+.right-column[
 * Uniform Interface
-* Stateless
+* Stateless (HATEOAS)
 * Cacheable
 * Client-Server
 * Layered System
@@ -126,7 +132,7 @@ To the extent that systems conform to the constraints of REST they can be called
 ### - Constraints
 ### - What it buys us
 ]
-.right-column.large[
+.right-column[
 * Performance
 * Scalability
 * Simplicity
@@ -145,7 +151,7 @@ To the extent that systems conform to the constraints of REST they can be called
 ### - What it buys us
 ### - Web APIs
 ]
-.right-column.large[
+.right-column[
 * Resource (noun) based
 * Use standard HTTP verbs to specify actions
 * Use HTTP response codes to indicate status
@@ -154,19 +160,40 @@ To the extent that systems conform to the constraints of REST they can be called
 
 ---
 
-template: inverse
-# Putting it all together
+template: title
+# Example Project:
+#&nbsp;
+--
+BetterReads
+
+---
+
+background-image: url('graph.png')
 
 ---
 
 .left-column[
-## Case Study: BetterReads
+## Serialization
+### - Publisher
 ]
-.right-column.large[
-* Relationships
-* Model definitions
-* What it looks like
-* Calling our API from a client
+.right-column[
+```python
+class Publisher(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    address = models.TextField()
+
+    def __str__(self):
+        return self.name
+```
+]
+--
+
+.right-column[
+```python
+class PublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Publisher
+```
 ]
 
 ---
@@ -174,7 +201,7 @@ template: inverse
 .left-column[
 ## Resources
 ]
-.right-column.large[
+.right-column[
 * [REST API Tutorial](http://www.restapitutorial.com/)
 ]
 
@@ -183,6 +210,6 @@ template: inverse
 .left-column[
 ## Sources
 ]
-.right-column.large[
+.right-column[
 * [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) on Wikipedia
 ]
