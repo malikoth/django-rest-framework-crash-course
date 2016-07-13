@@ -1,7 +1,7 @@
 name: title
 layout: true
 class: center, middle, huge
-background-image: url('http://wallpaperlayer.com/img/2015/7/cool-blue-textured-backgrounds-6923-7203-hd-wallpapers.jpg')
+background-image: url('blue-wallpaper.jpg')
 
 .left-column[
 
@@ -14,7 +14,7 @@ background-image: url('http://wallpaperlayer.com/img/2015/7/cool-blue-textured-b
 
 name: background
 layout: true
-background-image: url('http://wallpaperlayer.com/img/2015/7/cool-blue-textured-backgrounds-6923-7203-hd-wallpapers.jpg')
+background-image: url('blue-wallpaper.jpg')
 
 ---
 
@@ -170,7 +170,7 @@ To the extent that systems conform to the constraints of REST they can be called
 
 template: title
 # Example Project:
-#&nbsp;
+# &nbsp;
 --
 BetterReads
 
@@ -226,6 +226,11 @@ class Person(models.Model):
         unique_together = ('first_name', 'last_name')
 ```
 ]
+
+???
+
+The unique_together constraint creates a multi-column index keeping all combinations of first and last names unique.
+
 --
 
 .right-column[
@@ -237,6 +242,11 @@ class PersonSerializer(serializers.ModelSerializer):
         model = models.Person
 ```
 ]
+
+???
+
+We can customize the way the email field is serialized by giving it a different serializer field.  The EmailField
+serializer will check for a valid e-mail address before accepting the input.
 
 ---
 
@@ -266,6 +276,11 @@ class TagSerializer(serializers.ModelSerializer):
         model = models.Tag
 ```
 ]
+
+???
+
+The slug related field alters the way a data relationship is displayed, by simply displaying one of the attributes
+of the related object.  The attribute it shows is specified in the slug_field.
 
 ---
 
@@ -306,6 +321,11 @@ class BookSerializer(serializers.ModelSerializer):
         model = models.Book
 ```
 ]
+
+???
+
+The HyperlinkedIdentityField creates a link to the current object's representation.  The url field is automatically
+created with the same field serializer if you subclass HyperlinkedModelSerializer instead of ModelSerializer.
 
 ---
 
