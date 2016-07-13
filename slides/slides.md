@@ -160,7 +160,7 @@ To the extent that systems conform to the constraints of REST they can be called
 ### - Web APIs
 ]
 .right-column[
-* Resource (noun) based
+* Resource (noun) based, collections and instances
 * Use standard HTTP verbs to specify actions
 * Use HTTP response codes to indicate status
 * Offer responses in multiple formats (JSON, XML, etc.)
@@ -171,8 +171,17 @@ To the extent that systems conform to the constraints of REST they can be called
 template: title
 # Example Project:
 # &nbsp;
+???
+
+I love reading, and I use GoodReads to make it a somewhat social experience.  But GoodReads isn't perfect.  It could be
+better.  Better than good.  So I decided to start work on...
+
 --
 BetterReads
+
+???
+
+...BetterReads!  Which will be better than GoodReads!
 
 ---
 
@@ -200,11 +209,21 @@ class PublisherSerializer(serializers.ModelSerializer):
         model = models.Publisher
 ```
 ]
+
+???
+
+Note that the serializer knows the model class, and it knows all of the attributes on that class.  The ModelSerializer
+default behavior automatically creates an appropriate serializer field for each attribute on the model
+
 --
 
 .right-column[
 ```json
-{'address': '12345 S. State Street', 'id': 1, 'name': 'Del Rey'}
+{
+  'address': '12345 S. State Street',
+  'id': 1,
+  'name': 'Del Rey'
+}
 ```
 ]
 
@@ -268,9 +287,8 @@ class Tag(models.Model):
 ```python
 class TagSerializer(serializers.ModelSerializer):
     books = serializers.SlugRelatedField(
-        slug_field='name',
-        queryset=models.Book.objects.all(),
-        many=True)
+        slug_field='name', many=True
+        queryset=models.Book.objects.all())
 
     class Meta:
         model = models.Tag
@@ -308,14 +326,13 @@ class Book(models.Model):
 ```python
 class BookSerializer(serializers.ModelSerializer):
     tags = serializers.SlugRelatedField(
-        slug_field='name',
-        queryset=models.Tag.objects.all(),
-        many=True)
+        slug_field='name', many=True,
+        queryset=models.Tag.objects.all())
     publisher = serializers.SlugRelatedField(
-        slug_field='name',
-        queryset=models.Publisher.objects.all(),
-        allow_null=True)
-    url = serializers.HyperlinkedIdentityField(view_name='book-detail')
+        slug_field='name', allow_null=True,
+        queryset=models.Publisher.objects.all())
+    url = serializers.HyperlinkedIdentityField(
+        view_name='book-detail')
 
     class Meta:
         model = models.Book
@@ -374,12 +391,12 @@ Note that authors and tags are both M2M relationships, but they render different
 ### - Notes
 ]
 .right-column[
-* Serializers convert Python objects to rendered content (JSON, XML, etc.)
+* Serializers render Python objects to plain-text representation (JSON, XML, etc.)
 ]
 --
 
 .right-column[
-* Deserializers convert plain text (JSON, XML, etc.) to Python objects
+* They also parse plain-text representations (JSON, XML, etc.) and convert back to Python objects
 ]
 --
 
@@ -489,26 +506,37 @@ List view is for actions when you don't have a primary key.
 DRF will happily create a view for every action you need with ViewSets.
 
 ```python
+class PersonViewSet(viewsets.ModelViewSet):
+    queryset = models.Person.objects.all()
+    serializer_class = serializers.PersonSerializer
+```
+]
+--
+
+.right-column.padding[
+TagViewSet and PublisherViewSet are virtually identical to PersonViewSet.
+]
+
+---
+
+.left-column[
+## ViewSets
+### - Methods
+### - Actions
+### - Detail View
+### - List View
+### - Grouping
+### - Filtering
+]
+.right-column[
+Here's the most interesting thing my viewsets do:
+
+```python
 class BookViewSet(viewsets.ModelViewSet):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
     filter_fields = ('year', 'in_print', 'authors',
                      'name', 'tags', 'publisher')
-
-
-class TagViewSet(viewsets.ModelViewSet):
-    queryset = models.Tag.objects.all()
-    serializer_class = serializers.TagSerializer
-
-
-class PublisherViewSet(viewsets.ModelViewSet):
-    queryset = models.Publisher.objects.all()
-    serializer_class = serializers.PublisherSerializer
-
-
-class PersonViewSet(viewsets.ModelViewSet):
-    queryset = models.Person.objects.all()
-    serializer_class = serializers.PersonSerializer
 ```
 ]
 
@@ -529,17 +557,17 @@ template: title
 ### - Review
 ]
 .right-column[
-* Models using Django ORM
+* Models created with Django ORM
 ]
 --
 
 .right-column[
-* Serialized to rendered format
+* Object serialized to representation in desired format
 ]
 --
 
 .right-column[
-* Created viewsets to interact with each
+* Viewsets to interact with each resource
 ]
 --
 
@@ -588,8 +616,10 @@ template: title
 .right-column.no-curves[
 ```python
 Python 3.5.1 (default, Dec  7 2015, 21:59:08)
-[GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.1.76)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
+[GCC 4.2.1 Compatible Apple LLVM 7.0.0
+(clang-700.1.76)] on darwin
+Type "help", "copyright", "credits" or
+"license" for more information.
 ```
 ]
 --
@@ -610,7 +640,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 .right-column.no-padding.no-curves[
 ```python
->>> data = requests.get('http://localhost:8000/api/people/').json()
+>>> data = requests.get(
+...     'http://localhost:8000/api/people/'
+... ).json()
 ```
 ]
 --
@@ -624,6 +656,10 @@ Type "help", "copyright", "credits" or "license" for more information.
   'last_name': 'Rich'}]
 ```
 ]
+
+???
+
+If there's time, open up the console and play with the client I made.
 
 ---
 

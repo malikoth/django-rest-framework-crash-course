@@ -27,11 +27,8 @@ h1, h2, h3 {
 li p {
     line-height: 1.25em;
 }
-.red {
-    color: #fa0000;
-}
 a, a > code {
-    color: rgb(249, 38, 114);
+    color: #38f;
     text-decoration: none;
 }
 code {
@@ -43,7 +40,7 @@ code {
 }
 .remark-code, .remark-inline-code {
     font-family: 'Ubuntu Mono';
-    font-size: 21px !important;
+    font-size: 26px !important;
 }
 .remark-code-line-highlighted {
     background-color: #333;
@@ -88,6 +85,9 @@ code {
 }
 .no-padding > * {
     padding-top: 0;
+}
+.padding {
+    padding-top: 1em;
 }
 .huge h1 {
     font-size: 6em;
