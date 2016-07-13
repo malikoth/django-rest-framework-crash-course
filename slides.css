@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Droid Serif';
+    color: #eee;
 }
 h1, h2, h3 {
     font-family: 'Yanone Kaffeesatz';
@@ -29,22 +30,23 @@ li p {
 .red {
     color: #fa0000;
 }
-.large {
-    font-size: 2em;
-}
 a, a > code {
     color: rgb(249, 38, 114);
     text-decoration: none;
 }
 code {
     background: #e7e8e2;
-    border-radius: 5px;
+    border-radius: 5px
+}
+.no-curves code {
+    border-radius: 0;
 }
 .remark-code, .remark-inline-code {
     font-family: 'Ubuntu Mono';
+    font-size: 21px !important;
 }
 .remark-code-line-highlighted {
-    background-color: #373832;
+    background-color: #333;
 }
 .pull-left {
     float: left;
@@ -57,20 +59,11 @@ code {
 .pull-right ~ p {
     clear: both;
 }
-#slideshow .slide .content code {
-    font-size: 0.8em;
+.title {
+    text-shadow: 0 0 20px #555;
 }
-#slideshow .slide .content pre code {
-    font-size: 0.9em;
-    padding: 15px;
-}
-.inverse {
-    background: #272822;
-    color: #777872;
-    text-shadow: 0 0 20px #333;
-}
-.inverse h1, .inverse h2 {
-    color: #f3f3f3;
+.title h1, .title h2 , .title h3{
+    color: #fff;
     line-height: 0.8em;
 }
 
@@ -82,12 +75,28 @@ code {
     float: left;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-    color: #000;
+    color: #ccc;
 }
 .right-column {
     width: 75%;
     float: right;
+    font-size: 1.6em;
+}
+.right-column > * {
     padding-top: 1em;
+    margin: 0;
+}
+.no-padding > * {
+    padding-top: 0;
+}
+.huge h1 {
+    font-size: 6em;
+}
+.huge h2 {
+    font-size: 4em;
+}
+.huge h3 {
+    font-size: 2em;
 }
 
 /* Slide-specific styling */
