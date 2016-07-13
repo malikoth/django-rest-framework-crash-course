@@ -27,6 +27,12 @@ h1, h2, h3 {
 li p {
     line-height: 1.25em;
 }
+.red {
+    color: #f00;
+}
+.green {
+    color: #0f0;
+}
 a, a > code {
     color: #38f;
     text-decoration: none;

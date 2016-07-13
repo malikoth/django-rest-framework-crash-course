@@ -605,6 +605,39 @@ urlpatterns = [
 
 ---
 
+.left-column[
+## Lines of Code
+### - Just FYI...
+]
+.right-column.padding[
+There are .red[four] files that make up the core of this service.
+]
+--
+
+.right-column[
+* models.py
+* serializers.py
+* urls.py
+* views.py
+]
+--
+
+.right-column.padding[
+Those four files total .red[124] lines of code.
+]
+--
+
+.right-column.padding[
+Of those, .red[42] are whitespace.
+]
+--
+
+.right-column.padding[
+Only .green[82] are actually doing something.
+]
+
+---
+
 template: title
 # Let's play with it!
 
