@@ -716,6 +716,19 @@ Type "help", "copyright", "credits" or
 
 ---
 
+.left-column[
+# Let's play with it!
+### - Python requests
+### - Browsable API
+### - CLI Client
+### - Swagger
+]
+.right-column[
+# Swagger
+]
+
+---
+
 template: title
 # Questions?
 
