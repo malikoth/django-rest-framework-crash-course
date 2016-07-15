@@ -645,6 +645,7 @@ template: title
 
 .left-column[
 # Let's play with it!
+### - Python requests
 ]
 .right-column.no-curves[
 ```python
@@ -690,9 +691,28 @@ Type "help", "copyright", "credits" or
 ```
 ]
 
-???
+---
 
-If there's time, open up the console and play with the client I made.
+.left-column[
+# Let's play with it!
+### - Python requests
+### - Browsable API
+]
+.right-column[
+# Django REST Framework Browsable API
+]
+
+---
+
+.left-column[
+# Let's play with it!
+### - Python requests
+### - Browsable API
+### - CLI Client
+]
+.right-column[
+# Custom CLI Client
+]
 
 ---
 
