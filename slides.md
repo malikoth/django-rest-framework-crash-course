@@ -617,8 +617,8 @@ There are .red[four] files that make up the core of this service.
 .right-column[
 * models.py
 * serializers.py
-* urls.py
 * views.py
+* urls.py
 ]
 --
 
