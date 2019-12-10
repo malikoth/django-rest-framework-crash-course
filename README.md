@@ -1,5 +1,6 @@
 # Django REST Framework Crash Course
-This is a talk by Kyle Rich for OpenWest 2016.
+This is a talk by Kyle Rich for OpenWest 2016
+https://joind.in/event/openwest-2016/django-rest-framework-crash-course
 
 ## Images
 To generate the dot file for the model graph representation, run this
